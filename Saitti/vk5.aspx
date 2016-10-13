@@ -16,6 +16,7 @@
         <asp:Button ID="btnGetTrains" runat="server" Text="Hae lähtevät Junat" OnClick="btnGetTrains_Click"/>
         <br />
         <asp:GridView ID="gvTrains" runat="server"></asp:GridView>
+        <asp:ListView ID="lvTrains" runat="server"></asp:ListView>
         <asp:Literal ID="ltResult" runat="server"></asp:Literal>
     </div>
     </form>

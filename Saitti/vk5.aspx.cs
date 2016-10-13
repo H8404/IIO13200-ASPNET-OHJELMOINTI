@@ -34,7 +34,7 @@ public partial class vk5 : System.Web.UI.Page
             }
             ret += "</ul>";
             ltResult.Text = ret;
-            /*DataTable dt = new DataTable();
+           /* DataTable dt = new DataTable();
             DataRow dr = null;
             dt.Columns.Add(new DataColumn("Junan numero", typeof(string)));
             dt.Columns.Add(new DataColumn("Peruutettu", typeof(Boolean)));
