@@ -28,7 +28,9 @@ namespace JAMK.IT
 
     public class Train
     {
-
+        public string trainNumber { get; set; }
+        public string departureDate { get; set; }
+        public Boolean cancelled { get; set; }
     }
 
     public class City
@@ -37,8 +39,8 @@ namespace JAMK.IT
         public string type { get; set; }
         public string stationName { get; set; }
         public string stationShortCode { get; set; }
-        public string stationUICCode { get; set; }
-        public string countryCode { get; set; }
+       /* public string stationUICCode { get; set; }
+        public string countryCode { get; set; }*/
        
 
        // "passengerTraffic":false,"type":"STATION","stationName":"Alholma","stationShortCode":"ALH","stationUICCode":308,"countryCode":"FI","longitude":22.69467280247231,"latitude":63.70825780092783

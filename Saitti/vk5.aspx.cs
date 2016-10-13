@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net;
 using JAMK.IT;
+using System.Data;
 
 public partial class vk5 : System.Web.UI.Page
 {
@@ -25,7 +26,29 @@ public partial class vk5 : System.Web.UI.Page
             //Hae JSON
             string shortCode = ddCity.SelectedValue;
             string json = GetJsonFrom("http://rata.digitraffic.fi/api/v1/live-trains?station="+shortCode+ "&arrived_trains=0&arriving_trains=0&departed_trains=0&departing_trains=50");
-            ltResult.Text = json;
+            List<Train> trains = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Train>>(json);
+            string ret = "<h2>Lähtevät junat</h2><ul>";
+            foreach (var train in trains)
+            {
+                ret += "<li>" + train.trainNumber + " " + train.cancelled + " " + train.departureDate +"</li>";
+            }
+            ret += "</ul>";
+            ltResult.Text = ret;
+            /*DataTable dt = new DataTable();
+            DataRow dr = null;
+            dt.Columns.Add(new DataColumn("Junan numero", typeof(string)));
+            dt.Columns.Add(new DataColumn("Peruutettu", typeof(Boolean)));
+            dt.Columns.Add(new DataColumn("Päivämäärä", typeof(string)));
+            foreach (var train in trains)
+            {
+                dr["Junan numero"] = train.trainNumber;
+                dr["Peruutettu"] = train.cancelled;
+                dr["Päivämäärä"] = train.departureDate;
+                dt.Rows.Add(dr);
+            }
+            gvTrains.DataSource = dt;
+            gvTrains.DataBind();*/
+
         }
         catch (Exception ex)
         {
@@ -51,7 +74,7 @@ public partial class vk5 : System.Web.UI.Page
             List<City> cities = Newtonsoft.Json.JsonConvert.DeserializeObject<List<City>>(json);
             foreach (var city in cities)
             {
-                if (city.passengerTraffic == true)
+                if (city.passengerTraffic == true && city.type == "STATION")
                 {
                     ddCity.Items.Add(new ListItem(city.stationName, city.stationShortCode));
                 }
