@@ -1,0 +1,17 @@
+﻿#menu {
+    background: #000061;
+    margin: 0 auto;
+    text-align:center;
+}
+h1{
+    margin:0;
+    padding: 30px;
+    font-family: 'Dancing Script', cursive;
+    color: #FFFFFF;
+    font-size: 85px;
+    text-shadow: 4px 4px 8px #000000;
+    font-style: italic;
+}
+body{
+    margin:0;
+}

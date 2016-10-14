@@ -4,14 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">Hannan sivut</asp:ContentPlaceHolder>
+    </title>
+    <link href="CSS/master.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Dancing+Script:400,700' rel='stylesheet' type='text/css'/>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    <div id="wrapper">
+        <div id="menu">
+            <h1>Hanna Ahonen</h1>
+        </div>
+        <asp:ContentPlaceHolder id="body" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
