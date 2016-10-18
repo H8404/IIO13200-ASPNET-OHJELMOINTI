@@ -4,8 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:XmlDataSource ID="myDataSource" runat="server"></asp:XmlDataSource>
-    <div>
-        <asp:ListBox ID="lbCity" runat="server" OnSelectedIndexChanged="lbCity_SelectedIndexChanged"></asp:ListBox>
+    <div class="main">
+        <div class="list">
+            <asp:ListBox ID="lbCity" runat="server" AutoPostBack="true" OnSelectedIndexChanged="lbCity_SelectedIndexChanged"  CssClass="city" ></asp:ListBox>
+        </div>
+        <div ID="picsdiv" runat="server" class="piclist">
+
+        </div>
     </div>
     <asp:Label runat="server" ID="lbMsg"></asp:Label>
 </asp:Content>

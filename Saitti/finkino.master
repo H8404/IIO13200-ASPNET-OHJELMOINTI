@@ -4,8 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Finkino leffat</title>
-    <link href="CSS/finkino.css" rel="stylesheet" type="text/css" />
+    <title>Finnkino leffat</title>
+     <link href="CSS/finnkino.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -13,7 +14,7 @@
     <form id="form1" runat="server">
     <div id="wrapper">
         <div id="menu">
-            <h1>Leffat Finkinossa</h1>
+            <h1>Leffat Finnkinossa tänään</h1>
         </div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

@@ -48,10 +48,28 @@ public partial class vk8 : System.Web.UI.Page
 
     protected void lbCity_SelectedIndexChanged(object sender, EventArgs e)
     {
-        string id = lbCity.SelectedValue;
-        string day = DateTime.Now.ToShortDateString();
-        string url = @"http://www.finnkino.fi/xml/Schedule/?area=" + id + "&dt=";
-        lbMsg.Text = "joo";
-        //myDataSource.DataFile = url;
+        try
+        {
+            picsdiv.InnerHtml = "";
+            string picURL;
+            string id = lbCity.SelectedValue;
+            string day = DateTime.Now.ToShortDateString();
+            string url = @"http://www.finnkino.fi/xml/Schedule/?area=" + id + "&dt=" + day;
+            myDataSource.DataFile = url;
+            XmlDocument doc = new XmlDocument();
+            doc = myDataSource.GetXmlDocument();
+            XmlNodeList nodes = doc.SelectNodes("/Schedule/Shows/Show/Images");
+            foreach (XmlNode n in nodes)
+            {
+                picURL = n["EventLargeImagePortrait"].InnerText;
+                picsdiv.InnerHtml += "<img src='" + picURL + "' alt='leffa' />";
+            }
+        }
+        catch (Exception ex)
+        {
+            lbMsg.Text = ex.Message;
+        }
     }
+
+
 }
